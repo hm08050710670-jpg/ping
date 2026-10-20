@@ -1,0 +1,12 @@
+CDX www.pinggolf.com/classics/irons/images/hero_eye2.jpg [] 
+CDX www.pinggolf.com/classics/irons/images/hero_zing.jpg [] 
+CDX www.pinggolf.com/classics/irons/images/hero_zing2.jpg [] 
+CDX www.pinggolf.com/classics/irons/images/hero_isi.jpg [] 
+FAIL https://web.archive.org/cdx/search/cdx?url=www.pinggolf.com/classics/irons/images/hero_i3.jpg&output=json&filter=statuscode:200&fl=timestamp,mimetype,length&limit=5 URLError(ConnectionRefusedError(111, 'Connection refused'))
+CDX www.pinggolf.com/classics/irons/images/hero_i3.jpg 
+CDX www.pinggolf.com/classics/woods/images/hero_tisi.jpg [] 
+CDX www.pinggolf.com/classics/woods/images/hero_tisitec.jpg [] 
+CDX www.pinggolf.com/classics/irons/images/hero_eye.jpg [] 
+CDX www.pinggolf.com/classics/irons/images/hero_karsten.jpg [] 
+CDX www.pinggolf.com/classics/woods/images/hero_ti3fairway.jpg [] 
+done 0
