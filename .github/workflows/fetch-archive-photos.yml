@@ -10,10 +10,10 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 38
     steps:
       - uses: actions/checkout@v4
-      - run: python3 tmp/fetch_archive.py
+      - run: timeout 28m python3 -u tmp/fetch_archive.py || echo "crawler stopped (timeout or error) — committing partial results"
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

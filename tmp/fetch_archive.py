@@ -5,23 +5,20 @@ from html.parser import HTMLParser
 OUT = 'tmp/archive'
 UA = {'User-Agent': 'Mozilla/5.0 (GOLF GUTS archive maintenance; contact: site owner)'}
 SEEDS = [
-    'http://www.pinggolf.com/classics/',
-    'http://www.pinggolf.com/classics/irons/',
+    'http://www.pinggolf.com/classics/navigation.html',
+    'http://www.pinggolf.com/classics/content.html',
     'http://www.pinggolf.com/classics/irons/eye2.html',
-    'http://www.pinggolf.com/classics/putters/',
-    'http://www.pinggolf.com/classics/woods/',
-    'http://www.pinggolf.com/classics/metalwoods/',
 ]
-TIMESTAMPS = ['20031012124115', '20050601000000']
+TIMESTAMPS = ['20031012124115']
 
-def get(url, binary=False, tries=3):
+def get(url, binary=False, tries=2):
     for i in range(tries):
         try:
             req = urllib.request.Request(url, headers=UA)
-            with urllib.request.urlopen(req, timeout=60) as r:
+            with urllib.request.urlopen(req, timeout=25) as r:
                 return r.read() if binary else r.read().decode('utf-8', 'replace')
         except Exception as e:
-            err = e; time.sleep(3 * (i + 1))
+            err = e; time.sleep(2)
     print('FAIL', url, err); return None
 
 class Links(HTMLParser):
@@ -56,7 +53,7 @@ while queue:
     for href in p.a:
         full=strip_wb(urllib.parse.urljoin(base, href))
         if 'pinggolf.com' in full and '/classics/' in full and full.split('#')[0].lower().endswith(('/', '.html', '.htm')):
-            if len(seen_pages) < 160: queue.append((ts, full.split('#')[0]))
+            if len(seen_pages) < 60: queue.append((ts, full.split('#')[0]))
     for src,alt in p.img:
         full=strip_wb(urllib.parse.urljoin(base, src))
         if 'pinggolf.com' not in full: continue
@@ -68,6 +65,7 @@ while queue:
         if data and len(data) > 800:
             open(os.path.join(folder,name),'wb').write(data)
             report.append({'ts':ts,'page':u,'img':full,'alt':alt,'bytes':len(data),'file':os.path.join(folder,name)})
-    time.sleep(1)
+    json.dump(report, open(os.path.join(OUT,'report.json'),'w'), ensure_ascii=False, indent=1)
+    print('PAGE', ts, u, 'links', len(p.a), 'imgs', len(p.img), flush=True)
 json.dump(report, open(os.path.join(OUT,'report.json'),'w'), ensure_ascii=False, indent=1)
 print('pages',len(seen_pages),'images',len(report))
