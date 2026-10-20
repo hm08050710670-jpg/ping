@@ -1,71 +1,53 @@
-"""Web アーカイブ上の PING 米国公式 classics ページから、ページ HTML と画像を取得する（作業用）。"""
-import os, re, sys, time, json, urllib.request, urllib.parse
+"""2003-10 時点の PING 米国公式 classics の対象ページと hero 画像を並列取得する（作業用）。"""
+import os, re, json, time, urllib.request, urllib.parse
+from concurrent.futures import ThreadPoolExecutor
 from html.parser import HTMLParser
-
-OUT = 'tmp/archive'
-UA = {'User-Agent': 'Mozilla/5.0 (GOLF GUTS archive maintenance; contact: site owner)'}
-SEEDS = [
-    'http://www.pinggolf.com/classics/navigation.html',
-    'http://www.pinggolf.com/classics/content.html',
-    'http://www.pinggolf.com/classics/irons/eye2.html',
-]
-TIMESTAMPS = ['20031012124115']
-
-def get(url, binary=False, tries=2):
-    for i in range(tries):
+TS='20031012124115'; BASE='http://www.pinggolf.com/classics/'
+PAGES=['irons/eye.html','irons/eye2.html','irons/zing.html','irons/zing2.html','irons/zing2wedges.html','irons/karsten.html','irons/isi.html','irons/i3.html',
+       'woods/tisi.html','woods/tisitec.html','woods/ti3fairway.html','woods/eye2.html','woods/eye.html','woods/karsten.html','woods/zing.html','woods/zing2.html',
+       'putters/bronze.html','putters/stainless.html','putters/home.html','putters/misc.html','putters/isoforce.html','putters/isopur.html']
+OUT='tmp/archive'; UA={'User-Agent':'Mozilla/5.0 (GOLF GUTS archive maintenance)'}
+def get(url, binary=False):
+    for i in range(2):
         try:
-            req = urllib.request.Request(url, headers=UA)
-            with urllib.request.urlopen(req, timeout=25) as r:
-                return r.read() if binary else r.read().decode('utf-8', 'replace')
-        except Exception as e:
-            err = e; time.sleep(2)
-    print('FAIL', url, err); return None
-
-class Links(HTMLParser):
-    def __init__(self): super().__init__(); self.a=[]; self.img=[]
-    def handle_starttag(self, tag, attrs):
-        d=dict(attrs)
-        if tag=='a' and d.get('href'): self.a.append(d['href'])
-        if tag in ('frame','iframe') and d.get('src'): self.a.append(d['src'])
-        if tag=='img' and d.get('src'): self.img.append((d['src'], d.get('alt','')))
-
-def wb(ts, url, raw=True):
-    return f'https://web.archive.org/web/{ts}{"id_" if raw else ""}/{url}'
-
-def strip_wb(u):
-    m = re.match(r'https?://web\.archive\.org/web/\d+(?:id_|im_)?/(.*)', u)
-    return m.group(1) if m else u
-
-seen_pages=set(); seen_imgs=set(); report=[]
-queue=[(ts,u) for ts in TIMESTAMPS for u in SEEDS]
-while queue:
-    ts,u = queue.pop(0)
-    key=(ts,u)
-    if key in seen_pages: continue
-    seen_pages.add(key)
-    html = get(wb(ts,u))
-    if not html: continue
-    p=Links(); p.feed(html)
-    folder=os.path.join(OUT, ts, re.sub(r'[^A-Za-z0-9._-]+','_',u)[:120])
-    os.makedirs(folder, exist_ok=True)
+            with urllib.request.urlopen(urllib.request.Request(url,headers=UA),timeout=40) as r:
+                return r.read() if binary else r.read().decode('utf-8','replace')
+        except Exception as e: err=e; time.sleep(2)
+    print('FAIL',url,err,flush=True); return None
+class P(HTMLParser):
+    def __init__(s): super().__init__(); s.img=[]; s.txt=[]
+    def handle_starttag(s,tag,a):
+        d=dict(a)
+        if tag=='img' and d.get('src'): s.img.append((d['src'],d.get('alt','')))
+    def handle_data(s,d): s.txt.append(d)
+def page(rel):
+    u=BASE+rel; html=get(f'https://web.archive.org/web/{TS}id_/{u}')
+    if not html: return []
+    folder=os.path.join(OUT,rel.replace('/','_')); os.makedirs(folder,exist_ok=True)
     open(os.path.join(folder,'page.html'),'w',encoding='utf-8').write(html)
-    base=u
-    for href in p.a:
-        full=strip_wb(urllib.parse.urljoin(base, href))
-        if 'pinggolf.com' in full and '/classics/' in full and full.split('#')[0].lower().endswith(('/', '.html', '.htm')):
-            if len(seen_pages) < 60: queue.append((ts, full.split('#')[0]))
-    for src,alt in p.img:
-        full=strip_wb(urllib.parse.urljoin(base, src))
+    p=P(); p.feed(html)
+    # also pick image names referenced in scripts (putter pages swap images via JS)
+    extra=re.findall(r'["\']([^"\']+\.(?:jpg|gif|png))["\']',html)
+    srcs=[(s,a) for s,a in p.img]+[(e,'') for e in extra]
+    out=[]
+    for src,alt in srcs:
+        if 'shim' in src or 'menu_' in src: continue
+        full=urllib.parse.urljoin(u,src)
         if 'pinggolf.com' not in full: continue
-        if (ts,full) in seen_imgs: continue
-        seen_imgs.add((ts,full))
+        out.append((rel,folder,full,alt))
+    print('PAGE',rel,'imgs',len(out),flush=True); return out
+def img(t):
+    rel,folder,full,alt=t
+    data=get(f'https://web.archive.org/web/{TS}im_/{full}',binary=True)
+    if data and len(data)>800:
         name=re.sub(r'[^A-Za-z0-9._-]+','_',full.split('pinggolf.com')[-1])[-100:]
-        data=get(f'https://web.archive.org/web/{ts}im_/{full}', binary=True) or get(wb(ts,full), binary=True)
-        print('IMG', full, len(data) if data else None)
-        if data and len(data) > 800:
-            open(os.path.join(folder,name),'wb').write(data)
-            report.append({'ts':ts,'page':u,'img':full,'alt':alt,'bytes':len(data),'file':os.path.join(folder,name)})
-    json.dump(report, open(os.path.join(OUT,'report.json'),'w'), ensure_ascii=False, indent=1)
-    print('PAGE', ts, u, 'links', len(p.a), 'imgs', len(p.img), flush=True)
-json.dump(report, open(os.path.join(OUT,'report.json'),'w'), ensure_ascii=False, indent=1)
-print('pages',len(seen_pages),'images',len(report))
+        open(os.path.join(folder,name),'wb').write(data)
+        print('IMG',rel,full,len(data),flush=True)
+        return {'page':rel,'img':full,'alt':alt,'bytes':len(data),'file':os.path.join(folder,name)}
+os.makedirs(OUT,exist_ok=True)
+with ThreadPoolExecutor(6) as ex:
+    targets=[t for lst in ex.map(page,PAGES) for t in lst]
+    seen=set(); uniq=[t for t in targets if not (t[2] in seen or seen.add(t[2]))]
+    report=[r for r in ex.map(img,uniq) if r]
+json.dump(report,open(os.path.join(OUT,'report.json'),'w'),ensure_ascii=False,indent=1)
+print('done pages',len(PAGES),'images',len(report),flush=True)
