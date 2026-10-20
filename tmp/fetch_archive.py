@@ -12,7 +12,7 @@ SEEDS = [
     'http://www.pinggolf.com/classics/woods/',
     'http://www.pinggolf.com/classics/metalwoods/',
 ]
-TIMESTAMPS = ['20031012124115', '20020601000000', '20041201000000', '20060601000000']
+TIMESTAMPS = ['20031012124115', '20050601000000']
 
 def get(url, binary=False, tries=3):
     for i in range(tries):
@@ -29,6 +29,7 @@ class Links(HTMLParser):
     def handle_starttag(self, tag, attrs):
         d=dict(attrs)
         if tag=='a' and d.get('href'): self.a.append(d['href'])
+        if tag in ('frame','iframe') and d.get('src'): self.a.append(d['src'])
         if tag=='img' and d.get('src'): self.img.append((d['src'], d.get('alt','')))
 
 def wb(ts, url, raw=True):
@@ -55,15 +56,16 @@ while queue:
     for href in p.a:
         full=strip_wb(urllib.parse.urljoin(base, href))
         if 'pinggolf.com' in full and '/classics/' in full and full.split('#')[0].lower().endswith(('/', '.html', '.htm')):
-            if len(seen_pages) < 120: queue.append((ts, full.split('#')[0]))
+            if len(seen_pages) < 160: queue.append((ts, full.split('#')[0]))
     for src,alt in p.img:
         full=strip_wb(urllib.parse.urljoin(base, src))
         if 'pinggolf.com' not in full: continue
         if (ts,full) in seen_imgs: continue
         seen_imgs.add((ts,full))
         name=re.sub(r'[^A-Za-z0-9._-]+','_',full.split('pinggolf.com')[-1])[-100:]
-        data=get(wb(ts,full), binary=True)
-        if data and len(data) > 1500:
+        data=get(f'https://web.archive.org/web/{ts}im_/{full}', binary=True) or get(wb(ts,full), binary=True)
+        print('IMG', full, len(data) if data else None)
+        if data and len(data) > 800:
             open(os.path.join(folder,name),'wb').write(data)
             report.append({'ts':ts,'page':u,'img':full,'alt':alt,'bytes':len(data),'file':os.path.join(folder,name)})
     time.sleep(1)
