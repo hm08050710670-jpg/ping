@@ -1,0 +1,121 @@
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_zing.jpg URLError(TimeoutError('timed out'))
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_zing.jpg URLError(TimeoutError('timed out'))
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_isi.jpg URLError(TimeoutError('timed out'))
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_isi.jpg URLError(TimeoutError('timed out'))
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_isi.jpg URLError(TimeoutError('timed out'))
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_isi.jpg URLError(TimeoutError('timed out'))
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_i3.jpg URLError(TimeoutError('timed out'))
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_eye.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_eye.jpg URLError(TimeoutError('timed out'))
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_eye.jpg URLError(TimeoutError('timed out'))
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_eye.jpg URLError(TimeoutError('timed out'))
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_karsten.jpg URLError(TimeoutError('_ssl.c:983: The handshake operation timed out'))
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_karsten.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_karsten.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_karsten.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_zing2wedges.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_zing2wedges.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_zing2wedges.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/irons/images/hero_zing2wedges.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_tisitec.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_tisitec.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_tisitec.jpg URLError(TimeoutError('timed out'))
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_tisitec.jpg URLError(TimeoutError('timed out'))
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_eye2.jpg URLError(TimeoutError('timed out'))
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_eye2.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_eye2.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_eye2.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_eye.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_eye.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_eye.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_eye.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_karsten.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_karsten.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_karsten.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_karsten.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_zing.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_zing.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_zing.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_zing.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_zing2.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_zing2.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_zing2.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_zing2.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_ti3fairway.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_ti3fairway.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_ti3fairway.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/woods/images/hero_ti3fairway.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/eye.html <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/eye.html <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/eye.html <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/eye.html <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/karsten.html <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/karsten.html <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/karsten.html <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/karsten.html <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/zing2wedges.html <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/zing2wedges.html <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/zing2wedges.html <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/irons/zing2wedges.html <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/eye2.html <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/eye2.html <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/eye2.html <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/eye2.html <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/eye.html <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/eye.html <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/eye.html <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/eye.html <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/karsten.html <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/karsten.html <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/karsten.html <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/karsten.html <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/zing.html <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/zing.html <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/zing.html <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/zing.html <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/zing2.html <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/zing2.html <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/zing2.html <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115id_/http://www.pinggolf.com/classics/woods/zing2.html <HTTPError 404: 'NOT FOUND'>
+PAGE woods/ti3fairway.html imgs 3
+PAGE putters/bronze.html imgs 47
+IMG http://www.pinggolf.com/images/products/putters/bronze/anser.jpg 7159
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade.jpg URLError(TimeoutError('timed out'))
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade.jpg URLError(TimeoutError('timed out'))
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade.jpg URLError(TimeoutError('timed out'))
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade5bz.jpg URLError(TimeoutError('_ssl.c:983: The handshake operation timed out'))
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade5bz.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade5bz.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade5bz.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade5ks.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade5ks.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade5ks.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ablade5ks.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser3.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser3.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser3.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser3.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser5bz.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser5bz.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser5bz.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser5bz.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser5ks.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser5ks.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser5ks.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anser5ks.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anserx.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anserx.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anserx.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/anserx.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ayd.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ayd.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ayd.jpg <HTTPError 404: 'NOT FOUND'>
+FAIL https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/ayd.jpg <HTTPError 404: 'NOT FOUND'>
+retry 1 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/b69.jpg <HTTPError 404: 'NOT FOUND'>
+retry 2 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/b69.jpg <HTTPError 404: 'NOT FOUND'>
+retry 3 https://web.archive.org/web/20031012124115im_/http://www.pinggolf.com/classics/putters/b69.jpg <HTTPError 404: 'NOT FOUND'>
