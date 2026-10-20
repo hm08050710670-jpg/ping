@@ -1,0 +1,22 @@
+# 一時的な作業用ワークフロー（archive-photos ブランチ専用）。完了後に削除する。
+name: Fetch archived PING classics pages
+on:
+  workflow_dispatch:
+  push:
+    branches: [archive-photos]
+    paths: ['.github/workflows/fetch-archive-photos.yml']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tmp/fetch_archive.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f tmp/archive
+          git commit -m "chore: アーカイブ候補を取得（目視確認用） [photos]" || echo "nothing to commit"
+          git push origin HEAD:archive-photos
