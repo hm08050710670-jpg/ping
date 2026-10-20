@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F8F5EF">
+  <meta name="description" content="PINGの歴代クラブを、年代・種類・シリーズで探す個人用アーカイブ。公式資料へのリンク、モデル比較、お気に入りとメモに対応。">
+  <meta name="robots" content="noindex,nofollow">
+  <title>PING CLUB ARCHIVE | GOLF GUTS</title>
+  <link rel="icon" href="assets/branding/ping-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="lofts.css">
+  <script defer src="data.js"></script>
+  <script defer src="core.js"></script>
+  <script defer src="lofts.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#catalog">クラブ一覧へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="./" class="brand" aria-label="GOLF GUTS クラブアーカイブ トップ">
+        <img class="brand-logo" src="assets/branding/golf-guts-logo.svg" alt="GOLF GUTS — DESIGN YOUR GOLF LIFE" width="600" height="150" decoding="async">
+      </a>
+      <nav class="primary-nav" aria-label="メインメニュー">
+        <button class="nav-button is-active" data-view="grid" aria-pressed="true">クラブ一覧</button>
+        <button class="nav-button" data-view="timeline" aria-pressed="false">歴代年表</button>
+        <button class="nav-button saved-nav" data-view="saved" aria-pressed="false"><span class="nav-heart" aria-hidden="true">♡</span> 保存<span id="saved-count" class="nav-count">0</span></button>
+      </nav>
+      <button class="icon-button about-button" id="open-about" aria-label="このアーカイブについて"><span aria-hidden="true">i</span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="tiny-dot"></span> THE CLUB COLLECTION <span class="hero-range">1959 — 2026</span></div>
+          <h1 id="hero-title"><img class="ping-logo" src="assets/branding/ping-logo.svg" alt="PING" width="731" height="190" decoding="async"><span>CLUB ARCHIVE<span class="title-period">.</span></span></h1>
+          <p class="hero-jp">あの名器から、いまの一本まで。</p>
+          <p class="hero-description">歴代クラブを、年代・シリーズ・種類から。<br>知りたい一本が、すぐ見つかる。</p>
+          <div class="hero-bottom"><span><b id="total-count">—</b> 掲載項目</span><span>6 カテゴリー</span><span class="private-label">個人用 / 非公式</span></div>
+        </div>
+        <button class="hero-feature" id="hero-feature" aria-label="G440 K ドライバーの詳細を見る">
+          <span class="feature-index">FEATURED MODEL <span>01 / 2026</span></span>
+          <span class="feature-photo"><img src="assets/hero-g440k.png" alt="PING G440 K ドライバーのクラブヘッド" fetchpriority="high" width="550" height="360"><span class="feature-rings" aria-hidden="true"></span></span>
+          <span class="feature-bottom"><span><span class="feature-type">DRIVER</span><strong>G440 K</strong></span><span class="circle-arrow" aria-hidden="true">↗</span></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="catalog-section" id="catalog" aria-labelledby="catalog-heading">
+      <div class="section-topline"><div><span class="section-kicker" id="section-kicker">EXPLORE THE ARCHIVE</span><h2 id="catalog-heading">クラブを探す</h2></div><p class="updated"><span class="status-dot"></span> 資料確認 <time datetime="2026-10-20">2026.10.20</time></p></div>
+      <section class="generation-picker" id="generation-picker" aria-labelledby="generation-heading">
+        <div class="generation-heading-row"><div><h3 id="generation-heading">Gシリーズを選ぶ</h3><p>知りたいシリーズをタップしてください。</p></div><button class="text-button" data-generation="all">すべてのクラブ</button></div>
+        <div class="generation-grid" id="generation-buttons" role="group" aria-label="主なGシリーズ"></div>
+        <details class="older-generations" id="older-generations" open><summary>G400以前のシリーズも見る <span aria-hidden="true">＋</span></summary><div class="older-generation-grid" id="older-generation-buttons" role="group" aria-label="G400以前のシリーズ"></div></details>
+      </section>
+      <div class="generation-results-heading" id="generation-results-heading" hidden><div><span class="section-kicker">SELECTED SERIES</span><h3 id="selected-generation-title"></h3><p>クラブの種類を選ぶと、さらに絞り込めます。</p></div><button class="text-button" id="back-to-generations">シリーズを選び直す ↑</button></div>
+      <div class="search-row">
+        <div class="search-box"><span class="search-icon" aria-hidden="true"></span><input type="search" id="search" aria-label="モデル名・特徴で検索" maxlength="200" placeholder="モデル名・特徴で検索　例：G430、EYE2、ANSER" autocomplete="off" spellcheck="false"><button type="button" id="clear-search" class="clear-search" aria-label="検索文字を消去" hidden>×</button></div>
+        <button class="filter-toggle" id="filter-toggle" aria-expanded="false" aria-controls="filter-panel"><span aria-hidden="true">☷</span> 絞り込み<span id="filter-count"></span></button>
+      </div>
+      <div id="category-tabs" class="category-tabs" role="group" aria-label="クラブの種類"></div>
+      <div class="archive-layout">
+        <aside class="filter-panel" id="filter-panel" aria-label="絞り込み条件">
+          <div class="filter-panel-heading"><h3>絞り込み</h3><button class="text-button" id="reset-filters">リセット</button></div>
+          <fieldset class="decade-field"><legend>年代</legend><div id="decade-buttons" class="decade-buttons"></div></fieldset>
+          <label class="select-field" for="year-filter">発売・発表年<select id="year-filter"><option value="all">すべての年</option></select></label>
+          <label class="select-field" for="family-filter">シリーズ<select id="family-filter"><option value="all">すべてのシリーズ</option></select></label>
+          <div class="sidebar-note"><span class="note-icon" aria-hidden="true">↗</span><p>一つひとつのモデルに<br>公式資料へのリンクを掲載。</p><button class="text-button" id="open-about-sidebar">年の表記について <span aria-hidden="true">→</span></button></div>
+        </aside>
+        <div class="results-area">
+          <div class="results-toolbar"><p id="results-count" aria-live="polite" aria-atomic="true">モデルを読み込んでいます…</p><label class="sort-field" for="sort">並び順<select id="sort"><option value="newest">新しい年順</option><option value="oldest">古い年順</option><option value="name">モデル名順</option></select></label></div>
+          <div id="active-filters" class="active-filters" aria-label="適用中の条件"></div>
+          <p class="saved-notice" id="saved-notice" hidden>保存したクラブとメモは、この端末のブラウザーに保存されます。</p>
+          <div id="results" class="club-grid"></div>
+          <div id="load-more-wrap" class="load-more-wrap" hidden><p id="shown-count"></p><button class="button button-outline" id="load-more">さらに表示 <span aria-hidden="true">↓</span></button></div>
+          <noscript><p class="empty-state">このサイトの検索・比較にはJavaScriptが必要です。ブラウザーのJavaScriptを有効にしてください。</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <section class="archive-note"><img class="note-logo" src="assets/branding/golf-guts-logo.svg" alt="GOLF GUTS — DESIGN YOUR GOLF LIFE" width="600" height="150" loading="lazy" decoding="async"><div><h2>クラブを知る、レッスンに活かす。</h2><p>公式資料で確認した歴代の主要モデル・シリーズを収録しています。<br class="desktop-only">限定仕様やすべてのヘッド形状を含む、完全な製品一覧ではありません。</p></div><button class="text-button" id="open-sources">収録方針・出典について <span aria-hidden="true">↗</span></button></section>
+  </main>
+
+  <footer class="site-footer"><span>GOLF GUTS <span class="footer-divider">/</span> PING CLUB ARCHIVE</span><span>PINGの公式サイトではありません。</span><a href="https://www.clubping.jp/club-archive" target="_blank" rel="noopener noreferrer">PING公式 過去製品アーカイブ ↗</a></footer>
+
+  <div class="compare-tray" id="compare-tray" hidden><div class="compare-tray-inner"><div class="compare-tray-label"><span class="section-kicker">COMPARE</span><strong><span id="compare-count">0</span> / 3</strong></div><div class="compare-selected" id="compare-selected"></div><button class="tray-reset" id="clear-compare" aria-label="比較の選択をすべて解除">クリア</button><button class="button button-accent" id="open-compare" disabled>比較する <span aria-hidden="true">→</span></button></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <dialog class="detail-dialog" id="detail-dialog" aria-labelledby="detail-title"><div id="detail-content"></div></dialog>
+  <dialog class="compare-dialog" id="compare-dialog" aria-labelledby="compare-title"><div class="dialog-top"><div><span class="section-kicker">SIDE BY SIDE</span><h2 id="compare-title">モデルを比較</h2></div><button class="icon-button close-dialog" data-close="compare-dialog" aria-label="比較を閉じる">×</button></div><div id="compare-content"></div></dialog>
+  <dialog class="about-dialog" id="about-dialog" aria-labelledby="about-title"><div class="dialog-top"><div><span class="section-kicker">ABOUT THIS ARCHIVE</span><h2 id="about-title">アーカイブについて</h2></div><button class="icon-button close-dialog" data-close="about-dialog" aria-label="説明を閉じる">×</button></div><div class="about-body">
+    <p class="about-lead">PINGの歴代クラブを、<br>調べやすく、比べやすく。</p>
+    <p>GOLF GUTSの個人用クラブ資料です。PING公式の製品ページ、カタログ、歴史資料、当時のメーカー発表資料をもとにモデル情報を整理しています。一部の旧モデルは、当時の公式ページの保存版も参照しています。</p>
+    <h3>収録範囲</h3><p>ドライバー、フェアウェイウッド、ハイブリッド、アイアン、ウェッジ、パターの主要モデル・シリーズを収録。シリーズ内の仕様は「主なバリエーション」で紹介しています。限定カラー、限定品、すべてのパターヘッド、シャフト仕様、ジュニア製品などを網羅するものではありません。</p>
+    <h3>年の表記</h3><p>発売当時の公式資料で日本の発売日を確認できる場合は「国内発売年」を使用。その他は「海外発表年」「発表年」「公式年表」「公式アーカイブ掲載年」など、根拠を併記しています。日本と海外の発売時期は異なることがあり、資料間の相違が残るモデルには注記しています。年が確認できないものは「年未確認」と表示します。</p>
+    <h3>ロフトの見方</h3><p>アイアンは番手別のメーカー掲載値と、日本公式仕様・パワーロフト・米国標準などの区分を併記しています。同じモデル名でも仕様により角度が異なるため、表の区分と注記を合わせてご確認ください。公式資料を確認できていないモデルは「資料未確認」と表示します。</p>
+    <h3>写真とモデルの違い</h3><p>公式資料で確認できた製品写真を掲載しています。シリーズをまとめた項目の写真は代表モデルです。写真のない項目は、公式資料で外観をご確認ください。製品写真の出典は各モデルの詳細から開けます。</p>
+    <h3>保存とメモ</h3><p>♡で保存し、モデルの詳細に自分用のメモを残せます。内容はこの端末・このブラウザー内に保存されます。端末間の自動同期はなく、ブラウザーのデータ消去で失われます。</p>
+    <h3>確認時点</h3><p>2026年10月20日に確認した資料を収録。情報は自動更新されません。各モデルの詳細にある公式資料も併せてご確認ください。</p>
+    <div class="about-links"><a href="https://www.clubping.jp/club-archive" target="_blank" rel="noopener noreferrer">PING公式 過去製品アーカイブ ↗</a><a href="https://www.clubping.jp/tokusyu/club-archive" target="_blank" rel="noopener noreferrer">PING公式 Gドライバーの変遷 ↗</a><a href="https://www.clubping.jp/history" target="_blank" rel="noopener noreferrer">PING公式 ヒストリー ↗</a></div>
+  </div></dialog>
+</body>
+</html>
