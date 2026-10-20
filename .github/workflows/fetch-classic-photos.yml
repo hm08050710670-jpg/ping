@@ -1,0 +1,43 @@
+# 一時的な作業用ワークフロー（classic-photos ブランチ専用）。
+# PING Japan 公式ページからクラシックパター4件の写真を取得してこのブランチにコミットする。
+# 作業完了後に削除する。main には入れない。
+name: Fetch classic putter photos
+on:
+  workflow_dispatch:
+  push:
+    branches: [classic-photos]
+    paths: ['.github/workflows/fetch-classic-photos.yml']
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download official photos
+        run: |
+          set -euo pipefail
+          mkdir -p tmp/photo-check
+          UA="Mozilla/5.0 (GOLF GUTS archive maintenance)"
+          dl() { curl -fsSL -A "$UA" -o "tmp/photo-check/$1" "$2"; file "tmp/photo-check/$1"; ls -l "tmp/photo-check/$1"; }
+          dl putter-1-a.jpg      https://www.clubping.jp/product/assets/img/classic_putter/img_1a_01.jpg
+          dl putter-1-a-2.jpg    https://www.clubping.jp/product/assets/img/classic_putter/img_1a_02.jpg
+          dl putter-1-a-3.jpg    https://www.clubping.jp/product/assets/img/classic_putter/img_1a_03.jpg
+          dl putter-anser.jpg    https://www.clubping.jp/product/assets/img/classic_putter/img_anser_01.jpg
+          dl putter-anser-2x.jpg https://www.clubping.jp/product/assets/img/classic_putter/img_anser_02.jpg
+          dl putter-anser-3x.jpg https://www.clubping.jp/product/assets/img/classic_putter/img_anser_03.jpg
+          dl putter-anser-2.jpg  https://www.clubping.jp/product/assets/img/classic_putter/img_anser2_01.jpg
+          dl putter-anser-2-2.jpg https://www.clubping.jp/product/assets/img/classic_putter/img_anser2_02.jpg
+          dl putter-anser-2-3.jpg https://www.clubping.jp/product/assets/img/classic_putter/img_anser2_03.jpg
+          dl putter-b60-a.jpg    https://www.clubping.jp/media/UOhWCIPBcrHvLFKpDnhsKmLcDlvkXOVtcz8714Rw.jpg
+          dl putter-b60-b.jpg    https://www.clubping.jp/media/vZnEmmvifqeGIar0MKUJpsEEMxqNC8F2k0B6oM9S.jpg
+          dl putter-b60-c.jpg    https://www.clubping.jp/media/P7J2aVsd2giPcthz1YHrk4Ri5eUEar5GMuaPaEKF.jpg
+          dl wedge-eye2-a.jpg    https://www.clubping.jp/tokusyu/monogatari/vol2/tokusyu/monogatari/img__vol2__photo1.jpg
+          dl wedge-eye2-b.jpg    https://www.clubping.jp/tokusyu/monogatari/vol2/tokusyu/monogatari/img__vol2__photo2.jpg
+      - name: Commit candidates to this branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f tmp/photo-check
+          git commit -m "chore: 写真候補を取得（目視確認用、後で整理） [photos]"
+          git push origin HEAD:classic-photos
