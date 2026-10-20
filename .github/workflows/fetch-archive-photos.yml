@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches: [archive-photos]
-    paths: ['.github/workflows/fetch-archive-photos.yml']
+    paths: ['tmp/fetch_archive.py']
 permissions:
   contents: write
 jobs:
