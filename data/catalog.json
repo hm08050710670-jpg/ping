@@ -7431,7 +7431,10 @@
         "label": "PING公式 製品・歴史資料",
         "url": "https://www.clubping.jp/product/classic_putter.html"
       }
-    ]
+    ],
+    "image": "assets/putter-1-a.jpg",
+    "imageAlt": "1-A パター（復刻版・公式写真）",
+    "imageSource": "https://www.clubping.jp/product/classic_putter.html"
   },
   {
     "id": "putter-anser",
@@ -7451,7 +7454,10 @@
         "label": "PING公式 製品・歴史資料",
         "url": "https://www.clubping.jp/product/classic_putter.html"
       }
-    ]
+    ],
+    "image": "assets/putter-anser.jpg",
+    "imageAlt": "ANSER パター（復刻版・公式写真）",
+    "imageSource": "https://www.clubping.jp/product/classic_putter.html"
   },
   {
     "id": "putter-anser-2",
@@ -7472,7 +7478,10 @@
         "url": "https://www.clubping.jp/product/classic_putter.html"
       }
     ],
-    "yearNote": "1975年はPING日本公式クラシック製品ページの「1975年に誕生したPING初となるステンレススチールパター」という記述に基づく。"
+    "yearNote": "1975年はPING日本公式クラシック製品ページの「1975年に誕生したPING初となるステンレススチールパター」という記述に基づく。",
+    "image": "assets/putter-anser-2.jpg",
+    "imageAlt": "ANSER 2 パター（復刻版・公式写真）",
+    "imageSource": "https://www.clubping.jp/product/classic_putter.html"
   },
   {
     "id": "putter-ping-n-ping-5",
@@ -7924,7 +7933,10 @@
         "url": "https://web.archive.org/web/20031012124115/http://www.pinggolf.com:80/classics/irons/eye2.html"
       }
     ],
-    "yearNote": "1982年はEYE2シリーズの登場年。米国公式の旧製品資料では、L（ロブウェッジ）のセットへの追加は1986年3月と記載されている。"
+    "yearNote": "1982年はEYE2シリーズの登場年。米国公式の旧製品資料では、L（ロブウェッジ）のセットへの追加は1986年3月と記載されている。",
+    "image": "assets/wedge-eye2.jpg",
+    "imageAlt": "EYE2 ウェッジ S（公式記事写真）",
+    "imageSource": "https://www.clubping.jp/tokusyu/monogatari/vol2.html"
   },
   {
     "id": "wedge-glide",
@@ -8151,7 +8163,10 @@
         "label": "PING公式 製品・歴史資料",
         "url": "https://www.clubping.jp/tokusyu/product-information/20260905"
       }
-    ]
+    ],
+    "image": "assets/putter-b60.jpg",
+    "imageAlt": "B60 パター（VAULT 2.0 復刻版・公式記事写真）",
+    "imageSource": "https://www.clubping.jp/tokusyu/product-information/20260905"
   },
   {
     "id": "putter-tr-1966",
